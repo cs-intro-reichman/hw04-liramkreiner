@@ -1,7 +1,9 @@
 public class ArrayOps {
     public static void main(String[] args)
     {
-       
+       int [] array = {2,8,3,7,8};
+       System.out.println(secondMaxValue(array));
+
     }
     
     public static int findMissingInt (int [] array) {
@@ -36,7 +38,7 @@ public class ArrayOps {
             }
             secondmax = Math.min(array[i],secondmax);//checking what is the min to be the second max
         }
-        for (int i=0;i<array.length-1;i++)
+        for (int i=0;i<array.length;i++)
         {
             if(i!=indexofgrater&&array[i]>secondmax)//check if the number is grater than the second max but not the max
                 secondmax = Math.max(array[i],secondmax);

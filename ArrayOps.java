@@ -1,8 +1,7 @@
 public class ArrayOps {
     public static void main(String[] args)
     {
-       int [] array = {2,8,3,7,8};
-       System.out.println(secondMaxValue(array));
+
 
     }
     

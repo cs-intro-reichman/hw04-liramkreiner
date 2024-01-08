@@ -21,22 +21,87 @@ public class StringOps {
     //////        in Recitation 3 question 5             ///////
     //////                                               ///////
     ////////////////////////////////////////////////////////////
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
+     System.out.println(allIndexOf("HELLO wo pk",'l'));   
+    }
+
+    public static String capVowelsLowRest (String s) {
+        String newone="";
+        for(int i = 0;i<s.length(); i++)
+        {   
+            char newchar ='a';
+            int valueofchar=s.charAt(i);//getting the value of the char
+            if(64<valueofchar&&valueofchar<91)//check if the letter is Capital
+             newchar = (char)(valueofchar+32 );
+            else newchar = (char)(valueofchar -32 );//the letter his small one so i will make it capital
+            newone += newchar;
+
+
+        }
+
+        return newone;
+    }
+
+    public static String camelCase (String s) 
+    {
         
+        String newone = "";
+        char newchar = s.charAt(0) ;
+        int valueofchar = s.charAt(0);
+        int indexfirst = 0; 
+        for(int i=0;i<s.length();i++) //checking what is the first letter
+        {
+            if(s.charAt(i) != ' ')
+            {
+                valueofchar = s.charAt(i); 
+                newchar = s.charAt(i) ;
+                if(64<valueofchar&&valueofchar<91)//check if the letter is Capital
+                newchar = (char)(valueofchar+32 );
+                newone +=newchar;
+                indexfirst = i;//saving the first index of letter
+                break;
+            }
+        }
+         for(int i=indexfirst+1;i<s.length();i++)
+         {
+            valueofchar = s.charAt(i);
+            if(s.charAt(i) != ' ')//check if this is not space
+            {
+                if(s.charAt(i-1) == ' ')//check if previous char was space
+                {
+
+                    if(valueofchar>91)//check if it is small letter
+                        newchar = (char)(valueofchar -32 ); //making the letter to be capital
+                        newone +=newchar;//adding the char
+                }
+            
+                else 
+                {
+                    if(64<valueofchar&&valueofchar<91)//check if the letter is Capital
+                        newchar = (char)(valueofchar+32 );
+                    else newchar = (char)(valueofchar);//if itsnot capital letter
+                    newone +=newchar;//adding the char
+                }
+
+            }
+         }
+        return newone;
     }
 
-    public static String capVowelsLowRest (String string) {
-        // Write your code here:
-        return "";
-    }
-
-    public static String camelCase (String string) {
-        // Write your code here:
-        return "";
-    }
-
-    public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+    public static int[] allIndexOf (String s, char chr) {
+        int count = 0;//counting how many time the letter exsist
+        for(int i=0;i<s.length();i++)
+            if(s.charAt(i)==chr)//counting it
+                count++;
+        int[] allindex = new int [count];
+        int indexofarrry = 0;//checking the index of the arry
+        for(int i=0;i<s.length();i++)//put the exsist index on the arry
+            if(s.charAt(i)==chr)
+            {
+                allindex[indexofarrry]=i;
+                indexofarrry++;
+            }
+            return allindex;
     }
 }

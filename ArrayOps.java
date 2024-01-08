@@ -24,16 +24,21 @@ public class ArrayOps {
 
     public static int secondMaxValue(int [] array)
     {
+        int indexofgrater = 0;
         int maxarry = array[0];//detrer the max
         int secondmax = array[0];//deter the second max
         for (int i=0;i<array.length;i++)
         {
-            maxarry = Math.max(array[i],maxarry);//checking what is the max
+            if(maxarry<array[i])
+            {
+                indexofgrater = i;//saving the index of the max number
+                maxarry=array[i];//checking what is the max
+            }
             secondmax = Math.min(array[i],secondmax);//checking what is the min to be the second max
         }
         for (int i=0;i<array.length-1;i++)
         {
-            if(maxarry>array[i]&&array[i]>secondmax)//check if the number is grater than the second max but smaller then max
+            if(i!=indexofgrater&&array[i]>secondmax)//check if the number is grater than the second max but not the max
                 secondmax = Math.max(array[i],secondmax);
         }
         return secondmax;

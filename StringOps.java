@@ -23,20 +23,28 @@ public class StringOps {
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) 
     {
-     System.out.println(allIndexOf("HELLO wo pk",'l'));   
+     System.out.println(capVowelsLowRest("Hello   World"));   
     }
 
     public static String capVowelsLowRest (String s) {
         String newone="";
+        char newchar ='a';
         for(int i = 0;i<s.length(); i++)
         {   
-            char newchar ='a';
             int valueofchar=s.charAt(i);//getting the value of the char
-            if(64<valueofchar&&valueofchar<91)//check if the letter is Capital
-             newchar = (char)(valueofchar+32 );
-            else newchar = (char)(valueofchar -32 );//the letter his small one so i will make it capital
-            newone += newchar;
-
+            if(s.charAt(i)=='a'||s.charAt(i)=='e'||s.charAt(i)=='i'||s.charAt(i)=='o'||s.charAt(i)=='u')//check if the letter is one of the chosen one
+            {
+                if(64<valueofchar&&valueofchar<91)//check if the letter is Capital
+                    newchar = (char)(valueofchar);
+                else newchar = (char)(valueofchar-32);//the letter his small one so i will make it capital
+            }
+            else 
+            {
+                if(64<valueofchar&&valueofchar<91)//check if the letter is Capital
+                    newchar = (char)(valueofchar+32 );
+                else newchar = (char)(valueofchar);//the letter his small one so i will make it capital
+            }
+            newone += newchar;//adding the char
 
         }
 
@@ -73,6 +81,7 @@ public class StringOps {
 
                     if(valueofchar>91)//check if it is small letter
                         newchar = (char)(valueofchar -32 ); //making the letter to be capital
+                        else newchar = (char)(valueofchar);
                         newone +=newchar;//adding the char
                 }
             

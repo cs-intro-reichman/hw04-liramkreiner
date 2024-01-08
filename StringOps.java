@@ -23,16 +23,17 @@ public class StringOps {
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) 
     {
-     System.out.println(capVowelsLowRest("Hello   World"));   
+     System.out.println(capVowelsLowRest("onE twO thrEE wOrld"));   
     }
 
     public static String capVowelsLowRest (String s) {
         String newone="";
         char newchar ='a';
+        String forcheck = "AEIOUaeiou";
         for(int i = 0;i<s.length(); i++)
         {   
             int valueofchar=s.charAt(i);//getting the value of the char
-            if(s.charAt(i)=='a'||s.charAt(i)=='e'||s.charAt(i)=='i'||s.charAt(i)=='o'||s.charAt(i)=='u')//check if the letter is one of the chosen one
+            if(forcheck.indexOf(s.charAt(i))>-1)//check if the letter is one of the chosen one
             {
                 if(64<valueofchar&&valueofchar<91)//check if the letter is Capital
                     newchar = (char)(valueofchar);
